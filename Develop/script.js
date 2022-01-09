@@ -13,6 +13,17 @@ if (length < 8 || length > 128 || isNaN(passwordLength)) {
   return;
 }
 
+const isLowercase = confirm("Do you want to add lowercase values to your password?");
+const isUppercase = confirm("Do you want to add uppercase values to your password?");
+const isNumeric = confirm("Do you want to add numeric values to your password?");
+const isSpecial = confirm("Do you want to add special characters to your password?");
+
+if (!isLowercase && !isUppercase && !isNumeric && !isSpecial) {
+  alert()
+  return;
+}
+
+
 
 
 function generatePassword

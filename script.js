@@ -11,43 +11,44 @@ function generatePassword() {
   const numeric = [0,1,2,3,4,5,6,7,8,9];
   const special = ["!", "@", "£", "$", "%", "^", "&", "*", "=", "+"];
 
-  while (parseInt(pwSize) <8 || parseInt (pwSize) >128 || Number.isNaN(parseInt(pwsize))) {
+  while (parseInt(pwSize) < 8 || parseInt(pwSize) >128 || Number.isNaN(parseInt(pwsize))) {
     pwSize = prompt("Please select a password length between 8 values and 128 values.")
   }
   
   const lowerCaseChoice = confirm("Would you like your password to contain lowercase values?")
-  if (lowerCaseChoice == true) {
+  if (lowerCaseChoice == true){
     possibleCharacters = possibleCharacters.concat(lowerCase)
   }
 
   const upperCaseChoice = confirm("Would you like your password to contain uppercase values?")
-  if (UpperCaseChoice == true) {
+  if (UpperCaseChoice == true){
     possibleCharacters = possibleCharacters.concat(upperCase)
   }
 
   const numericChoice = confirm("Would you like your password to contain numeric values?")
-  if (numericChoice == true) {
+  if (numericChoice == true){
     possibleCharacters = possibleCharacters.concat(numeric)
   }
 
   const specialChoice = confirm("Would you like your password to contain special values?")
-  if (specialChoice == true) {
+  if (specialChoice == true){
     possibleCharacters = possibleCharacters.concat(special)
   }
     
   let result = ""
-  for (let i = 0, n-possibleCharacters.length; i<parseInt(pwSize); i++) {
+  for (let i = 0, n=possibleCharacters.length; i<parseInt(pwSize); i++) {
     result += possibleCharacters[Math.floor (Math.random ()*n)]
   }
   return result;
   }
 
+  //display generated password on screen
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector ("#password");
 
     passwordText.textContent = password;
   }
-  
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

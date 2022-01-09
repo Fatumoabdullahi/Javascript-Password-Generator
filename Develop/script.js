@@ -23,6 +23,25 @@ if (!isLowercase && !isUppercase && !isNumeric && !isSpecial) {
   return;
 }
 
+const choices = [];
+if (isLowercase) {
+  choices.push(lowercase);
+}
+const choices = [];
+if (isUppercase) {
+  choices.push(uppercase);
+}
+const choices = [];
+if (isNumeric) {
+  choices.push(numeric);
+}
+const choices = [];
+if (isSpecial) {
+  choices.push(special);
+}
+
+let password = "";
+
 
 
 

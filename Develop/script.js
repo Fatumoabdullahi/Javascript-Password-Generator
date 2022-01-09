@@ -1,64 +1,53 @@
+//Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//Create password function
 function generatePassword() {
+  let pwsize = 0
+  let possibleCharacters = []
 
-const lowercase = "abcdefghijklmnopqrstuvwxyz";
-const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numeric = "0123456789";
-const special = "!@£$%^&*+=";
+  const lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  const upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  const numeric = [0,1,2,3,4,5,6,7,8,9];
+  const special = ["!", "@", "£", "$", "%", "^", "&", "*", "=", "+"];
 
-const passwordLength = prompt("Please enter password length:");
-const length = parseInt (passwordLength);
+  while (parseInt(pwSize) <8 || parseInt (pwSize) >128 || Number.isNaN(parseInt(pwsize))) {
+    pwSize = prompt("Please select a password length between 8 values and 128 values.")
+  }
+  
+  const lowerCaseChoice = confirm("Would you like your password to contain lowercase values?")
+  if (lowerCaseChoice == true) {
+    possibleCharacters = possibleCharacters.concat(lowerCase)
+  }
 
-if (length < 8 || length > 128 || isNaN(passwordLength)) {
-  alert("choose a different length.");
-  return;
-}
+  const upperCaseChoice = confirm("Would you like your password to contain uppercase values?")
+  if (UpperCaseChoice == true) {
+    possibleCharacters = possibleCharacters.concat(upperCase)
+  }
 
-const isLowercase = confirm("Do you want to add lowercase values to your password?");
-const isUppercase = confirm("Do you want to add uppercase values to your password?");
-const isNumeric = confirm("Do you want to add numeric values to your password?");
-const isSpecial = confirm("Do you want to add special characters to your password?");
+  const numericChoice = confirm("Would you like your password to contain numeric values?")
+  if (numericChoice == true) {
+    possibleCharacters = possibleCharacters.concat(numeric)
+  }
 
-if (!isLowercase && !isUppercase && !isNumeric && !isSpecial) {
-  alert()
-  return;
-}
+  const specialChoice = confirm("Would you like your password to contain special values?")
+  if (specialChoice == true) {
+    possibleCharacters = possibleCharacters.concat(special)
+  }
+    
+  let result = ""
+  for (let i = 0, n-possibleCharacters.length; i<parseInt(pwSize); i++) {
+    result += possibleCharacters[Math.floor (Math.random ()*n)]
+  }
+  return result;
+  }
 
-const choices = [];
-if (isLowercase) {
-  choices.push(lowercase);
-}
-const choices = [];
-if (isUppercase) {
-  choices.push(uppercase);
-}
-const choices = [];
-if (isNumeric) {
-  choices.push(numeric);
-}
-const choices = [];
-if (isSpecial) {
-  choices.push(special);
-}
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector ("#password");
 
-let password = "";
-
-for (let i = 0; i < length; i++) {
-  const randomChoiceIndex = Math.floor(Math.random() * choices.length);
-  const randomCharacters = choices[randomChoiceIndex];
-  password += randomCharacters.charAt(
-    Math.floor(Math.random() * randomCharacters.length)
-  );
-}
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;}
-}
-
+    passwordText.textContent = password;
+  }
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

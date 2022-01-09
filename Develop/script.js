@@ -11,7 +11,7 @@ function generatePassword() {
   const numeric = [0,1,2,3,4,5,6,7,8,9];
   const special = ["!", "@", "£", "$", "%", "^", "&", "*", "=", "+"];
 
-  while (parseInt(pwSize) < 8 || parseInt(pwSize) >128 || Number.isNaN(parseInt(pwsize))) {
+  while (parseInt(pwSize) < 8 || parseInt(pwSize) >128 || Number.isNaN(parseInt(pwSize))) {
     pwSize = prompt("Please select a password length between 8 values and 128 values.")
   }
   
@@ -21,7 +21,7 @@ function generatePassword() {
   }
 
   const upperCaseChoice = confirm("Would you like your password to contain uppercase values?")
-  if (UpperCaseChoice == true){
+  if (upperCaseChoice == true){
     possibleCharacters = possibleCharacters.concat(upperCase)
   }
 
@@ -42,7 +42,7 @@ function generatePassword() {
   return result;
   }
 
-  //display generated password on screen
+//display generated password on screen
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector ("#password");

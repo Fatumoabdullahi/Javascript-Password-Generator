@@ -5,7 +5,7 @@ This project is focused on adding a series of prompts to a password generator si
 https://fatumoabdullahi.github.io/javascript-password-generator/
 ## Screenshots
 <figure>
-<img src=./assets/password.png>
+<img src=./Assets/Password.png>
 </figure>
 
 # Technologies Used
